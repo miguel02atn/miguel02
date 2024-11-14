@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juego de Gatos</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+      text-align: center;
+    }
+
+    .game-container {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .start-button {
+      font-size: 20px;
+      padding: 10px 20px;
+      background-color: #ff4081;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-bottom: 20px;
+    }
+
+    .start-button:hover {
+      background-color: #f50057;
+    }
+
+    .message {
+      font-size: 40px;
+      font-weight: bold;
+      color: #000;
+      display: none;
+      margin-top: 20px;
+    }
+
+    .rainbow-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, violet, indigo, blue, green, yellow, orange, red);
+      background-size: 400% 400%;
+      animation: rainbow 3s ease infinite;
+      z-index: -1;
+    }
+
+    @keyframes rainbow {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .heart {
+      font-size: 80px;
+      color: black;
+      margin-top: 20px;
+      animation: beat 1s infinite alternate;
+    }
+
+    @keyframes beat {
+      0% {
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(1.2);
+      }
+    }
+
+    .dancing-cat {
+      font-size: 50px;
+      animation: dance 0.5s infinite alternate;
+      margin-top: 20px;
+    }
+
+    @keyframes dance {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    .dancing-cat:before {
+      content: '=^._.^=';
+    }
+  </style>
+</head>
+<body>
+
+  <div class="game-container">
+    <div class="rainbow-background"></div>
+    <button class="start-button" onclick="startGame()">Iniciar</button>
+    <div class="message">Kathe te amo</div>
+    <div class="heart">❤️</div>
+    <div class="dancing-cat"></div>
+  </div>
+
+  <script>
+    function startGame() {
+      // Mostrar el mensaje y ocultar el botón
+      document.querySelector('.message').style.display = 'block';
+      document.querySelector('.start-button').style.display = 'none';
+      
+      // Empezar animaciones (corazón, gatito y arco iris)
+      document.querySelector('.heart').style.display = 'block';
+      document.querySelector('.dancing-cat').style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
